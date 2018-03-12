@@ -52,7 +52,7 @@ import com.elixsr.portforwarder.ui.intro.MainIntro;
 import com.elixsr.portforwarder.ui.preferences.HelpActivity;
 import com.elixsr.portforwarder.ui.preferences.SettingsActivity;
 import com.elixsr.portforwarder.ui.rules.NewRuleActivity;
-import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.Tracker;
 
 
 public class MainActivity extends BaseActivity {
@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity {
     private Intent forwardingServiceIntent;
     private RuleDao ruleDao;
     private PercentRelativeLayout mRuleListEmptyView;
-    private Tracker tracker;
+    //private Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +161,7 @@ public class MainActivity extends BaseActivity {
                 mStatusIntentFilter);
 
         // Get tracker.
-        tracker = ((FwdApplication) this.getApplication()).getDefaultTracker();
+        //tracker = ((FwdApplication) this.getApplication()).getDefaultTracker();
 
         Log.i(TAG, "Finished onCreate");
     }

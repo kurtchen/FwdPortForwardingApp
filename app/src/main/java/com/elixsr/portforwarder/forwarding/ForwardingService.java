@@ -52,8 +52,8 @@ import com.elixsr.portforwarder.dao.RuleDao;
 import com.elixsr.portforwarder.db.RuleDbHelper;
 import com.elixsr.portforwarder.exceptions.ObjectNotFoundException;
 import com.elixsr.portforwarder.models.RuleModel;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.HitBuilders;
+//import com.google.android.gms.analytics.Tracker;
 
 /**
  * The {@link ForwardingService} class acts as a controller of all all forwarding.
@@ -98,7 +98,7 @@ public class ForwardingService extends IntentService {
 
     //wake lock
     private PowerManager.WakeLock wakeLock;
-    private Tracker tracker;
+    //private Tracker tracker;
 
     /**
      * Default constructor for {@link ForwardingService}.#
@@ -128,7 +128,7 @@ public class ForwardingService extends IntentService {
                 PORT_FORWARD_SERVICE_WAKE_LOCK_TAG);
         wakeLock.acquire();
 
-        tracker = ((FwdApplication) this.getApplication()).getDefaultTracker();
+        //tracker = ((FwdApplication) this.getApplication()).getDefaultTracker();
     }
 
     /**
@@ -218,11 +218,11 @@ public class ForwardingService extends IntentService {
         }
 
         // Build and send an Event.
-        tracker.send(new HitBuilders.EventBuilder()
-                .setCategory(CATEGORY_FORWARDING)
-                .setAction(ACTION_START_FORWARDING)
-                .setLabel(ruleModels.size() + " rules")
-                .build());
+        //tracker.send(new HitBuilders.EventBuilder()
+                //.setCategory(CATEGORY_FORWARDING)
+                //.setAction(ACTION_START_FORWARDING)
+                //.setLabel(ruleModels.size() + " rules")
+                //.build());
 
 
 
@@ -296,11 +296,11 @@ public class ForwardingService extends IntentService {
         Log.i(TAG, "onTaskRemoved: called");
 
         // Build and send an Event.
-        tracker.send(new HitBuilders.EventBuilder()
-                .setCategory(CATEGORY_FORWARDING)
-                .setAction(ACTION_STOP_FORWARDING)
-                .setLabel("Task Removed")
-                .build());
+        //tracker.send(new HitBuilders.EventBuilder()
+                //.setCategory(CATEGORY_FORWARDING)
+                //.setAction(ACTION_STOP_FORWARDING)
+                //.setLabel("Task Removed")
+                //.build());
 
         this.onDestroy();
     }
@@ -327,11 +327,11 @@ public class ForwardingService extends IntentService {
         wakeLock.release();
 
         // Build and send an Event.
-        tracker.send(new HitBuilders.EventBuilder()
-                .setCategory(CATEGORY_FORWARDING)
-                .setAction(ACTION_STOP_FORWARDING)
-                .setLabel("Ended")
-                .build());
+        //tracker.send(new HitBuilders.EventBuilder()
+                //.setCategory(CATEGORY_FORWARDING)
+                //.setAction(ACTION_STOP_FORWARDING)
+                //.setLabel("Ended")
+                //.build());
         Log.i(TAG, "Ended the ForwardingService. Cleanup finished.");
     }
 

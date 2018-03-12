@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".FwdApplication"
@@ -85,6 +86,15 @@
             </intent-filter>
         </receiver>
 
+        <!-- External Interface -->
+        <receiver
+            android:name=".forwarding.ExternalCommandReceiver"
+            android:label="PortForwardingServiceReceiver">
+            <intent-filter>
+                <action android:name="com.elixsr.portforwarder.forwarding.EXTERNAL_COMMAND" />
+            </intent-filter>
+        </receiver>
+
         <!-- Analytics -->
 
 
@@ -92,6 +102,7 @@
       Optionally, register AnalyticsReceiver and AnalyticsService to support background
       dispatching on non-Google Play devices
         -->
+        <!--
         <receiver
             android:name="com.google.android.gms.analytics.AnalyticsReceiver"
             android:enabled="true">
@@ -104,11 +115,13 @@
             android:name="com.google.android.gms.analytics.AnalyticsService"
             android:enabled="true"
             android:exported="false" />
+        -->
 
         <!--
              Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable
              installation campaign reporting
         -->
+        <!--
         <receiver
             android:name="com.google.android.gms.analytics.CampaignTrackingReceiver"
             android:exported="true">
@@ -118,6 +131,7 @@
         </receiver>
 
         <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
+        -->
 
         <activity
             android:name=".ui.preferences.AdvancedSettingsActivity"

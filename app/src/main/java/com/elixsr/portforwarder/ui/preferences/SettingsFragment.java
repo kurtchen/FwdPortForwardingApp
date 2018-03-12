@@ -37,8 +37,8 @@ import com.elixsr.portforwarder.R;
 import com.elixsr.portforwarder.db.RuleContract;
 import com.elixsr.portforwarder.db.RuleDbHelper;
 import com.elixsr.portforwarder.forwarding.ForwardingManager;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.HitBuilders;
+//import com.google.android.gms.analytics.Tracker;
 
 /**
  * Created by Niall McShane on 29/02/2016.
@@ -65,7 +65,7 @@ public class SettingsFragment extends PreferenceFragment {
 
     private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferencesListener;
 
-    private Tracker tracker;
+    //private Tracker tracker;
     private Preference changeThemeToggle;
     Toast toast;
 
@@ -81,7 +81,7 @@ public class SettingsFragment extends PreferenceFragment {
                 Toast.LENGTH_SHORT);
 
         // Get tracker.
-        tracker = ((FwdApplication) getActivity().getApplication()).getDefaultTracker();
+        //tracker = ((FwdApplication) getActivity().getApplication()).getDefaultTracker();
 
         clearRulesButton = (Preference)findPreference(getString(R.string.pref_clear_rules));
 
@@ -107,11 +107,11 @@ public class SettingsFragment extends PreferenceFragment {
                                 clearRulesButton.setEnabled(false);
 
                                 // Build and send an Event.
-                                tracker.send(new HitBuilders.EventBuilder()
-                                        .setCategory(CATEGORY_RULES)
-                                        .setAction(ACTION_DELETE)
-                                        .setLabel(LABEL_DELETE_RULE)
-                                        .build());
+                                //tracker.send(new HitBuilders.EventBuilder()
+                                        //.setCategory(CATEGORY_RULES)
+                                        //.setAction(ACTION_DELETE)
+                                        //.setLabel(LABEL_DELETE_RULE)
+                                        //.build());
 
                                 Toast.makeText(getActivity(), CLEAR_RULES_COMPLETE_MESSAGE,
                                         Toast.LENGTH_SHORT).show();
@@ -194,12 +194,12 @@ public class SettingsFragment extends PreferenceFragment {
 
 
                     // Build and send an Event.
-                    tracker.send(new HitBuilders.EventBuilder()
-                            .setCategory(CATEGORY_THEME)
-                            .setAction(ACTION_CHANGE)
-                            .setLabel("Dark Mode: " + sharedPreferences
-                                    .getBoolean("pref_dark_theme", false))
-                            .build());
+                    //tracker.send(new HitBuilders.EventBuilder()
+                            //.setCategory(CATEGORY_THEME)
+                            //.setAction(ACTION_CHANGE)
+                            //.setLabel("Dark Mode: " + sharedPreferences
+                                    //.getBoolean("pref_dark_theme", false))
+                            //.build());
 
                     Intent intent = new Intent();
                     intent.setAction(DARK_MODE_BROADCAST);
